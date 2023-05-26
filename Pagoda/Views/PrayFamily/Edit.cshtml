@@ -1,0 +1,176 @@
+﻿@model Pagoda.Models.PrayFamily
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal m-3">
+    <h4>@ViewBag.Title</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.PrayFamilyID)
+
+    <fieldset>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-bold mb-2">Họ Tên Thành Viên</div>
+                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = "Xin Mời Nhập Họ Tên" } })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 d-none">
+                    <div class="text-bold mb-2">Thuộc Gia Đình</div>
+                    @Html.EditorFor(model => model.FamilyID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FamilyID, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6" style=" margin: 12px 0 12px 0;">
+                    <div class="text-bold mb-2">Ngày Sinh</div>
+                    @Html.TextBoxFor(model => model.BornDate, "{0:dd/MM/yyyy}", new { @class = "form-control", @id = "datepicker_bornDate_edit", placeholder = "Xin Mời Nhập Ngày Tháng Năm Mất" })
+                    @Html.ValidationMessageFor(model => model.BornDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6" style=" margin: 12px 0 12px 0;">
+                    <div class="text-bold mb-2">Ngày Mất</div>
+
+                    @Html.TextBoxFor(model => model.DieDate , "{0:dd/MM/yyyy}", new { @class = "form-control", @id = "datepicker_dieDate_edit", placeholder = "Xin Mời Nhập Ngày Tháng Năm Mất" })
+
+                    @Html.ValidationMessageFor(model => model.DieDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6" style=" margin: 12px 0 12px 0;">
+                    <div class="text-bold mb-2">Nơi Sinh</div>
+                    @Html.EditorFor(model => model.WhereBorn, new { htmlAttributes = new { @class = "form-control", placeholder = "Xin Mời Nhập Nơi Sinh" } })
+                    @Html.ValidationMessageFor(model => model.WhereBorn, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6" style=" margin: 12px 0 12px 0;">
+                    <div class="text-bold mb-2">Nơi Mất</div>
+                    @Html.EditorFor(model => model.WhereDie, new { htmlAttributes = new { @class = "form-control", placeholder = "Xin Mời Nhập Nơi Mất" } })
+                    @Html.ValidationMessageFor(model => model.WhereDie, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-bold mb-2">Giới Tính</div>
+
+                    @Html.DropDownListFor(model => model.Sex, new SelectList(new[] { new { Value = true, Text = "Nam" }, new { Value = false, Text = "Nữ" } }, "Value", "Text"), "Chọn Giới Tính", new { @class = "form-control" })
+
+                    @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+
+    </fieldset>
+
+    <hr />
+
+    <div class="col-md-offset-2 col-md-10 text-right" style="margin-left: 106px;">
+        <input type="button" value="Lưu" onclick="SavePrayFamily('@Model.PrayFamilyID')" class="btn btn-danger" />
+    </div>
+</div>
+}
+
+<link href="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.min.js")" type="text/javascript"></script>
+
+<style>
+    .ui-datepicker-month,
+    .ui-datepicker-year {
+        border-radius: 8px;
+        padding: 1px;
+        width: 91px !important;
+    }
+
+    .ui-datepicker-year {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .ui-datepicker-month {
+        margin-right: 8px !important;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.datepicker.setDefaults($.datepicker.regional['vi']);
+        $("#datepicker_bornDate_edit").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true,
+            minDate: new Date(1950, 0, 1),
+            maxDate: new Date(2050, 11, 31),
+            dayNamesMin: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            dayNames: ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'],
+            monthNames: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+            monthNamesShort: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12']
+        });
+
+        $("#datepicker_dieDate_edit").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true,
+            minDate: new Date(1950, 0, 1),
+            maxDate: new Date(2050, 11, 31),
+            dayNamesMin: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            dayNames: ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'],
+            monthNames: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+            monthNamesShort: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12']
+
+        });
+    });
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    function SavePrayFamily(PrayFamilyID) {
+        var FullName = $("#FullName").val();
+        var FamilyID = $("#FamilyID").val();
+        var Sex = $("#Sex").val();
+        var AgeLived = $("#AgeLived").val();
+        var BornDate = $("#datepicker_bornDate_edit").datepicker("getDate");
+        var WhereBorn = $("#WhereBorn").val();
+        var WhereDie = $("#WhereDie").val();
+        var DieDate = $("#datepicker_dieDate_edit").datepicker("getDate");
+
+        if (DieDate) {
+            var formattedDieDate_edit = DieDate.getFullYear() + '-' + (DieDate.getMonth() + 1).toString().padStart(2, '0') + '-' + DieDate.getDate().toString().padStart(2, '0');
+        } else {
+            var formattedDieDate_edit = $("#DieDate").val();
+        }
+
+        if (BornDate) {
+            var formattedBornDate_edit = BornDate.getFullYear() + '-' + (BornDate.getMonth() + 1).toString().padStart(2, '0') + '-' + BornDate.getDate().toString().padStart(2, '0');
+        } else {
+            var formattedBornDate_edit = $("#BornDate").val();
+        }
+
+        var PrayFamily = {
+            "FullName": FullName,
+            "FamilyID": FamilyID,
+            "Sex": Sex,
+            "AgeLived": AgeLived,
+            "BornDate": formattedBornDate_edit,
+            "WhereBorn": WhereBorn,
+            "DieDate": formattedDieDate_edit,
+            "WhereDie": WhereDie,
+        };
+
+        $.post("/PrayFamily/Edit?PrayFamilyID=" + PrayFamilyID, PrayFamily,
+            function (data) {
+                if (data.success) {
+                    window.location.href = "/PrayFamily/?FamilyID=" + FamilyID;
+                } else {
+                    alert(data.message);
+                }
+            }, 'json');
+    }
+</script>

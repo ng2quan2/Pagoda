@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Pagoda" Class="PagodaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Buddhist" Member="Buddhists">
+    <Type Name="Buddhist">
+      <Column Name="BuddhistID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NickName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="StarID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThreatID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YearUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Role_Buddhist" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" />
+      <Association Name="Star_Buddhist" Member="Star" ThisKey="StarID" OtherKey="StarID" Type="Star" IsForeignKey="true" />
+      <Association Name="Threat_Buddhist" Member="Threat" ThisKey="ThreatID" OtherKey="ThreatID" Type="Threat" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserLogin" Member="UserLogins">
+    <Type Name="UserLogin">
+      <Column Name="LoginID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserPhone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Role_UserLogin" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DetailFamily" Member="DetailFamilies">
+    <Type Name="DetailFamily">
+      <Column Name="DetailFamilyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FamilyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StarID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThreatID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Family_DetailFamily" Member="Family" ThisKey="FamilyID" OtherKey="FamilyID" Type="Family" IsForeignKey="true" />
+      <Association Name="Star_DetailFamily" Member="Star" ThisKey="StarID" OtherKey="StarID" Type="Star" IsForeignKey="true" />
+      <Association Name="Threat_DetailFamily" Member="Threat" ThisKey="ThreatID" OtherKey="ThreatID" Type="Threat" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Donation" Member="Donations">
+    <Type Name="Donation">
+      <Column Name="DonationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YearUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Asset" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Thing" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Family" Member="Families">
+    <Type Name="Family">
+      <Column Name="FamilyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FamilyName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Family_DetailFamily" Member="DetailFamilies" ThisKey="FamilyID" OtherKey="FamilyID" Type="DetailFamily" />
+      <Association Name="Family_PrayFamily" Member="PrayFamilies" ThisKey="FamilyID" OtherKey="FamilyID" Type="PrayFamily" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Monk" Member="Monks">
+    <Type Name="Monk">
+      <Column Name="MonkID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NickName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="StarID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThreatID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YearUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Role_Monk" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" />
+      <Association Name="Star_Monk" Member="Star" ThisKey="StarID" OtherKey="StarID" Type="Star" IsForeignKey="true" />
+      <Association Name="Threat_Monk" Member="Threat" ThisKey="ThreatID" OtherKey="ThreatID" Type="Threat" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrayFamily" Member="PrayFamilies">
+    <Type Name="PrayFamily">
+      <Column Name="PrayFamilyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FamilyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DieDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AgeLived" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BornDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WhereDie" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="WhereBorn" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Family_PrayFamily" Member="Family" ThisKey="FamilyID" OtherKey="FamilyID" Type="Family" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Role" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Role_Buddhist" Member="Buddhists" ThisKey="RoleID" OtherKey="RoleID" Type="Buddhist" />
+      <Association Name="Role_UserLogin" Member="UserLogins" ThisKey="RoleID" OtherKey="RoleID" Type="UserLogin" />
+      <Association Name="Role_Monk" Member="Monks" ThisKey="RoleID" OtherKey="RoleID" Type="Monk" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Star" Member="Stars">
+    <Type Name="Star">
+      <Column Name="StarID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StarName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Star_Buddhist" Member="Buddhists" ThisKey="StarID" OtherKey="StarID" Type="Buddhist" />
+      <Association Name="Star_DetailFamily" Member="DetailFamilies" ThisKey="StarID" OtherKey="StarID" Type="DetailFamily" />
+      <Association Name="Star_Monk" Member="Monks" ThisKey="StarID" OtherKey="StarID" Type="Monk" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Threat" Member="Threats">
+    <Type Name="Threat">
+      <Column Name="ThreatID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ThreatName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Threat_Buddhist" Member="Buddhists" ThisKey="ThreatID" OtherKey="ThreatID" Type="Buddhist" />
+      <Association Name="Threat_DetailFamily" Member="DetailFamilies" ThisKey="ThreatID" OtherKey="ThreatID" Type="DetailFamily" />
+      <Association Name="Threat_Monk" Member="Monks" ThisKey="ThreatID" OtherKey="ThreatID" Type="Monk" />
+    </Type>
+  </Table>
+</Database>

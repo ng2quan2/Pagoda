@@ -1,0 +1,114 @@
+﻿@model Pagoda.Models.DetailFamily
+
+@{
+    ViewBag.Title = "Chi Tiết Thành Viên Gia Đình";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+    </ul>
+}
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản Lý Hồ Sơ Gia Đình</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/DetailFamily?FamilyID=@Model.Family.FamilyID">Danh Sách Thành Viên Gia Đình</a></li>
+                    <li class="breadcrumb-item active">@ViewBag.Title</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<h4 class="ml-3">@ViewBag.Title</h4>
+@*@Html.ActionLink("Edit", "Edit", new { DetailFamilyID = Model.DetailFamilyID }, new { @class = "btn btn-primary" })*@
+<!--@Html.ActionLink("Back to List", "Index")
+</p>-->
+
+<ul class="list-group m-2">
+    <li class="list-group-item">
+        <div>
+            <label>Họ Tên Thành Viên Gia Đình</label>
+        </div>
+
+        <div>
+            @Html.DisplayFor(model => model.FullName)
+        </div>
+    </li>
+
+    @*<li class="list-group-item">
+            <div>
+                <label>Pháp Danh</label>
+            </div>
+
+            <div>
+                @Html.DisplayFor(model => model.NickName)
+            </div>
+        </li>*@
+
+    <li class="list-group-item">
+        <div>
+            <label>Giới Tính</label>
+        </div>
+
+        <div>
+            @if (@Model.Sex == true)
+            {
+                <div>Nam</div>
+            }
+            else if (@Model.Sex == false)
+            {
+                <div>Nữ</div>
+            }
+        </div>
+    </li>
+
+    <li class="list-group-item">
+        <div>
+            <label>Tuổi</label>
+        </div>
+
+        <div>
+            @Html.DisplayFor(model => model.Age)
+        </div>
+    </li>
+
+    <li class="list-group-item">
+        <div>
+            <label>Sao Chiếu Mệnh</label>
+        </div>
+
+        <div>
+            @Html.DisplayFor(model => model.Star.StarName)
+        </div>
+    </li>
+
+    <li class="list-group-item">
+        <div>
+            <label>Hạn Kiết Hung</label>
+        </div>
+
+        <div>
+            @Html.DisplayFor(model => model.Threat.ThreatName)
+        </div>
+    </li>
+</ul>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Chỉnh Sửa", "Edit", new { DetailFamilyID = Model.DetailFamilyID }, new { @class = "btn btn-primary" })
+        <input type="button" value="Trở Lại" class="btn btn-warning" onclick="location.href = '/DetailFamily?FamilyID=@Model.FamilyID '" />
+        @*@Html.ActionLink("Trở Lại", "Index", null, new { @class = "btn btn-warning" })*@
+    </div>
+</div>

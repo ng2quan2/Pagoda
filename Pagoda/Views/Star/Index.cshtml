@@ -1,0 +1,457 @@
+﻿@model PagedList.PagedList<Pagoda.Models.Star>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Danh Sách Sao Chiếu Mệnh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+    </ul>
+}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 800px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Bảng Đoán Sao Chiếu Mệnh</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr style="background-color: #FF9933">
+                            <th class="text-center" style="text-transform: uppercase">
+                                Sao Hạng<br />(Nam)
+                            </th>
+                            <th class="text-center" colspan="10" style="line-height: 50px; text-transform: uppercase">
+                                <a>
+                                    Tuổi
+                                    <u style="text-decoration: none; color: forestgreen">(Âm Lịch)</u>
+                                </a>
+                            </th>
+                            <th class="text-center" style="text-transform: uppercase">
+                                Sao Hạng<br />(Nữ)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" style="background-color: #FFCC99">
+                            <td>La Hầu</td>
+                            <td>10</td>
+                            <td>19</td>
+                            <td>28</td>
+                            <td>37</td>
+                            <td>46</td>
+                            <td>55</td>
+                            <td>64</td>
+                            <td>73</td>
+                            <td>82</td>
+                            <td>91</td>
+                            <td>Kế Đô</td>
+                        </tr>
+
+                        <tr class="text-center">
+                            <td>Thổ Tú</td>
+                            <td>11</td>
+                            <td>20</td>
+                            <td>29</td>
+                            <td>38</td>
+                            <td>47</td>
+                            <td>56</td>
+                            <td>65</td>
+                            <td>74</td>
+                            <td>83</td>
+                            <td>92</td>
+                            <td>Vân Hớn</td>
+                        </tr>
+
+                        <tr class="text-center" style="background-color: #FFCC99">
+                            <td>Thủy Diệu</td>
+                            <td>12</td>
+                            <td>21</td>
+                            <td>30</td>
+                            <td>39</td>
+                            <td>48</td>
+                            <td>57</td>
+                            <td>66</td>
+                            <td>75</td>
+                            <td>84</td>
+                            <td>93</td>
+                            <td>Mộc Đức</td>
+                        </tr>
+
+                        <tr class="text-center">
+                            <td>Thái Bạch</td>
+                            <td>13</td>
+                            <td>22</td>
+                            <td>31</td>
+                            <td>40</td>
+                            <td>49</td>
+                            <td>58</td>
+                            <td>67</td>
+                            <td>76</td>
+                            <td>85</td>
+                            <td>94</td>
+                            <td>Thái Âm</td>
+                        </tr>
+
+                        <tr class="text-center" style="background-color: #FFCC99">
+                            <td>Thái Dương</td>
+                            <td>14</td>
+                            <td>23</td>
+                            <td>32</td>
+                            <td>41</td>
+                            <td>50</td>
+                            <td>59</td>
+                            <td>68</td>
+                            <td>77</td>
+                            <td>86</td>
+                            <td>95</td>
+                            <td>Thổ Tú</td>
+                        </tr>
+
+                        <tr class="text-center">
+                            <td>Vân Hớn</td>
+                            <td>15</td>
+                            <td>24</td>
+                            <td>33</td>
+                            <td>42</td>
+                            <td>51</td>
+                            <td>60</td>
+                            <td>69</td>
+                            <td>78</td>
+                            <td>87</td>
+                            <td>96</td>
+                            <td>La Hầu</td>
+                        </tr>
+
+                        <tr class="text-center" style="background-color: #FFCC99">
+                            <td>Kế Đô</td>
+                            <td>16</td>
+                            <td>25</td>
+                            <td>34</td>
+                            <td>43</td>
+                            <td>52</td>
+                            <td>61</td>
+                            <td>70</td>
+                            <td>79</td>
+                            <td>88</td>
+                            <td>97</td>
+                            <td>Thái Dương</td>
+                        </tr>
+
+                        <tr class="text-center">
+                            <td>Thái Âm</td>
+                            <td>17</td>
+                            <td>26</td>
+                            <td>35</td>
+                            <td>44</td>
+                            <td>53</td>
+                            <td>62</td>
+                            <td>71</td>
+                            <td>80</td>
+                            <td>89</td>
+                            <td>98</td>
+                            <td>Thái Bạch</td>
+                        </tr>
+
+                        <tr class="text-center" style="background-color: #FFCC99">
+                            <td>Mộc Đức</td>
+                            <td>18</td>
+                            <td>27</td>
+                            <td>36</td>
+                            <td>45</td>
+                            <td>54</td>
+                            <td>63</td>
+                            <td>72</td>
+                            <td>81</td>
+                            <td>90</td>
+                            <td>99</td>
+                            <td>Thủy Diệu</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5 class="text-center" style="text-transform: uppercase; color: forestgreen">
+                    Giải hạn kiết hung & giải thích ý nghĩa các hạn kiết hung
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản Lý Sao Chiếu Mệnh</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+                    <li class="breadcrumb-item active">@ViewBag.Title</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-sm-8">
+                <form class="form-inline">
+                    @using (Html.BeginForm("Index", "Star", FormMethod.Get))
+                    {
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @id = "Search", placeholder = "Nhập tên sao chiếu mệnh cần tìm kiếm ...", @style = "max-width: 500px; width: 60%" })
+                        <button class="btn btn-info ml-1" type="submit">Tìm kiếm</button>
+                    }
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn" style="float: right; color: white; background-color: #6600FF" data-toggle="modal" data-target="#exampleModal" type="button">
+                    Bảng Đoán Sao Chiếu Mệnh
+                </button>
+                <button class="btn mr-1" style="float: right; background-color: #CD853F; color: white" type="button" onclick="window.location.href='/Star'">
+                    Làm Mới Danh Sách
+                </button>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-default-info" style="margin-left: 8px; margin-right: 8px">
+        @TempData["Message"]
+        <button type="button" class="close" data-dismiss="alert">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" style="vertical-align: unset" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                </svg>
+            </span>
+        </button>
+    </div>
+}
+
+<div id="OpenDilog">
+
+</div>
+
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header" style="position: relative;">
+            <h3 class="card-title" style="position: absolute; top: 35%;">@ViewBag.Title</h3>
+
+            <div class="card-tools d-flex">
+                <a href="#" class="btn mr-1" style="background-color: #000066; color: white " onclick="CreateStar()">
+                    Thêm Mới
+                </a>
+                @if(Session["MaNhomSession"].ToString() == "1")
+                {
+                    <input type="submit" id="btnDeleteAll" class="btn btn-danger" value="Xóa Tất Cả" />
+                }
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        @if (Session["MaNhomSession"].ToString() == "1")
+                        {
+                            <th style="text-align: center"><input type="checkbox" id="SelectAll" class="cbkSelectAll" /></th>
+                        }
+                        <th style="text-align: center">STT</th>
+                        <th style="text-align: center">
+                            <a class="text-dark" href="@Url.Action("Index", "Star", new { sortOrder = ViewBag.StarName, currentFilter = ViewBag.CurrentFilter })">
+                                Sao Chiếu Mệnh
+                                <svg xmlns="http://www.w3.org/2000/svg" style="vertical-align: unset; padding-top: 5px" width="12" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                            </a>
+                        </th>
+                        <th style="text-align: center">
+                            <a class="text-dark" href="@Url.Action("Index", "Star", new { sortOrder = ViewBag.StarAge, currentFilter = ViewBag.CurrentFilter })">
+                                Tuổi
+                                <svg xmlns="http://www.w3.org/2000/svg" style="vertical-align: unset; padding-top: 5px" width="12" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                            </a>
+                        </th>
+                        <th style="text-align: center">Giới Tính</th>
+                        <th style="text-align: center">Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        var i = 1;
+                        foreach (var item in Model)
+                        {
+                            <tr id="trow_@item.StarID" class="Search">
+                                @if (Session["MaNhomSession"].ToString() == "1")
+                                {
+                                    <td style="text-align: center"><input type="checkbox" class="cbkItem" value="@item.StarID" /></td>
+
+                                }
+                                <td style="text-align: center">@i</td>
+                                <td style="text-align: center">@item.StarName</td>
+                                <td style="text-align: center">@item.Age</td>
+                                <td style="text-align: center">
+                                    @if (item.Sex == true)
+                                    {@Html.Raw("Nam")}
+                                else if (item.Sex == false)
+                                { @Html.Raw("Nữ")}
+                                </td>
+                                <td style="text-align: center">
+                                    <a href="#" class="btn btn-sm btn-success" onclick="EditStar('@item.StarID')">
+                                        Chỉnh Sửa
+                                    </a>
+                                    @if (Session["MaNhomSession"].ToString() == "1")
+                                    {
+                                        @Html.ActionLink("Xóa", "Delete", new { StarID = item.StarID }, new { @class = "btn btn-sm btn-warning", onclick = "return confirm('Bạn có chắc chắn muốn xóa không?');" })
+                                    }
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="12">Không có bản ghi nào!!!</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="row text-center">
+                <div class="col-12">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .my-dialog-class {
+        width: 480px !important;
+        height: 240px;
+        background-color: #fefefe !important;
+        margin: auto !important;
+        padding: 20px !important;
+        border: 1px solid #888 !important;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12) !important;
+        border-radius: 10px !important;
+    }
+
+    .ui-dialog {
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    .ui-widget-header {
+        background: none !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    .ui-button {
+        background: none !important;
+        border: none !important;
+    }
+</style>
+
+<link href="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.min.js")" type="text/javascript"></script>
+<script src="~/Scripts/jquery-3.6.4.min.js"></script>
+
+<script type="text/javascript">
+    function CreateStar() {
+        var div = $("#OpenDilog");
+        div.load("/Star/Create", function () {
+            div.dialog({
+                modal: true,
+                title: "Thêm Sao Chiếu Mệnh Mới",
+                resizable: false,
+                dialogClass: "my-dialog-class",
+                position: 'center',
+                show: { effect: 'fade', duration: 400 }
+            });
+        });
+    }
+
+    function EditStar(StarID) {
+        var div = $("#OpenDilog");
+        div.load("/Star/Edit?StarID=" + StarID, function () {
+            div.dialog({
+                modal: true,
+                dialogClass: "my-dialog-class",
+                title: "Chỉnh Sửa Sao Chiếu Mệnh",
+                position: 'center',
+                show: { effect: 'fade', duration: 400 },
+                resizable: false
+            });
+        });
+    }
+
+    $('body').on('change', '#SelectAll', function () {
+        var checkStatus = this.checked;
+        var checkbox = $(this).parents('.card-body').find('tr td input:checkbox');
+        checkbox.each(function () {
+            this.checked = checkStatus;
+            if (this.checked) {
+                checkbox.attr('selected', 'checked');
+            } else {
+                checkbox.attr('selected', '');
+            }
+        });
+    });
+
+    $('body').on('click', '#btnDeleteAll', function (e) {
+        e.preventDefault();
+        var str = "";
+        var checkbox = $(this).parents('.card').find('tr td input:checkbox');
+        var i = 0;
+        checkbox.each(function () {
+            if (this.checked) {
+                checkbox.attr('selected', 'checked');
+                var _id = $(this).val();
+                if (i === 0) {
+                    str += _id;
+                } else {
+                    str += "," + _id;
+                }
+                i++;
+            } else {
+                checkbox.attr('selected', '');
+            }
+        });
+        if (str.length > 0) {
+            var conf = confirm('Bạn có muốn xóa các bản ghi này không ?');
+            if (conf === true) {
+                $.ajax({
+                    url: '/Star/DeleteAll',
+                    type: 'POST',
+                    data: { ids: str },
+                    success: function (rs) {
+                        if (rs.success) {
+                            location.reload();
+                        }
+                    }
+                });
+            }
+        }
+    });
+
+</script>

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Pagoda.Models.Monk>
+@{
+    ViewBag.Title = "Bản In";
+    Layout = null;
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+<link rel="icon" href="~/Content/Clients/dist/img/print_icon.png" type="image/x-icon" />
+
+<title>@ViewBag.Title</title>
+
+<div class="container-fluid">
+    <h1 class="text-center">Chùa Phụng Sơn</h1>
+    <h3 class="text-center">
+        Tọa lạc ở số 1408 Đường Ba Tháng Hai, Phường 2, Quận 11, Thành phố Hồ Chí Minh
+    </h3>
+    <h2 class="text-center">
+        Danh Sách Các Sư Thầy
+    </h2>
+</div>
+
+<section class="content">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th style="text-align: center">STT</th>
+                        <th style="text-align: center">Họ Tên</th>
+                        <th style="text-align: center">Pháp Danh</th>
+                        <th style="text-align: center">Tuổi</th>
+                        <th style="text-align: center">Giới Tính</th>
+                        <th style="text-align: center">SĐT</th>
+                        <th style="text-align: center">Địa Chỉ</th>
+                        @*<th style="text-align: center">Sao</th>
+                            <th style="text-align: center">Hạn</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        var i = 1;
+                        foreach (var item in Model)
+                        {
+                            <tr id="trow_@item.MonkID">
+                                <td style="text-align: center">@i</td>
+                                <td style="text-align: center">@item.FullName</td>
+                                <td style="text-align: center">@item.NickName</td>
+                                <td style="text-align: center">@item.Age</td>
+
+                                <td style="text-align: center">
+                                    @if (item.Sex == true)
+                                    {@Html.Raw("Nam")}
+                                else if (item.Sex == false)
+                                { @Html.Raw("Nữ")}
+                                </td>
+
+                                <td style="text-align: center">@item.Phone</td>
+                                <td style="text-align: center">@item.Address</td>
+                                @*<td style="text-align: center">@item.Star.StarName</td>
+                                    <td style="text-align: center">@item.Threat.ThreatName</td>*@
+                            </tr>
+                            i++;
+                        }
+                    }
+
+                    else
+                    {
+                        <tr>
+                            <td colspan="12">Không có bản ghi nào!!!</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+

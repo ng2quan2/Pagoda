@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 15.375" name="Pagoda">
+  <DataContextMoniker Name="/PagodaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2a8be5b6-20f4-4a8d-9cbb-e64bf17b08a4" absoluteBounds="3.5, 1.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/PagodaDataContext/Buddhist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a7eb7454-8c6b-4581-a28e-6bbec2118063" absoluteBounds="3.515, 2.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b647874f-3030-4c69-b2bd-2a7a96336058" absoluteBounds="3.5, 13.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PagodaDataContext/UserLogin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="734b7503-4123-42b5-86f8-fdc84a7f9140" absoluteBounds="3.515, 13.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e5d5b87-8f57-4fb1-a89f-5ee1c4fdc8a7" absoluteBounds="3.5, 6.375, 2, 2.1554996744791657">
+      <DataClassMoniker Name="/PagodaDataContext/DetailFamily" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fe6f2779-a848-4c81-b3fa-ef3ab8167f6b" absoluteBounds="3.515, 6.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3728747e-6ed9-4a52-ae81-405396ec6c8c" absoluteBounds="6.75, 1.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/PagodaDataContext/Donation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="acba85de-c740-4c75-a9e0-ff3501855c8b" absoluteBounds="6.765, 2.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="661144fb-ed22-41d0-ba82-afc03a11e708" absoluteBounds="0.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/PagodaDataContext/Family" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5767bb10-ea53-4728-b166-425caa913ee2" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="13020be0-3b4f-4440-8c85-7ff6c0185416" absoluteBounds="6.5, 5.75, 2, 3.3093082682291657">
+      <DataClassMoniker Name="/PagodaDataContext/Monk" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b73bc4e8-b0d9-41d0-a38c-c82d5de6a070" absoluteBounds="6.515, 6.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7662ce4a-4fe2-4905-8c4b-311ded0fed47" absoluteBounds="3.5, 9.75, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/PagodaDataContext/PrayFamily" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf91ba80-d470-4d66-8445-f8662e3ea456" absoluteBounds="3.515, 10.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d51a471a-13a2-4bf0-b616-d24e2ceb1830" absoluteBounds="0.75, 3.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/PagodaDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bfe18726-8fd8-4c8c-9ff2-2ee93860b006" absoluteBounds="0.765, 4.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="402ae4c8-e4f7-471d-95ac-ac21b1d3a896" absoluteBounds="0.75, 9.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PagodaDataContext/Star" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cf52e71-c85e-48a1-b800-36167b7b894f" absoluteBounds="0.765, 10.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="09873aaf-b4eb-41e1-94b6-81fbf45bdd2e" absoluteBounds="0.75, 6.625, 2, 1.5785953776041657">
+      <DataClassMoniker Name="/PagodaDataContext/Threat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="edac5b52-2434-426f-97c5-6df84ad8e7b1" absoluteBounds="0.765, 7.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.08190756745793); (3.28125 : 2.61315756745793); (3.28125 : 7.45274983723958); (3.5 : 7.45274983723958)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Family/Family_DetailFamily" />
+      <nodes>
+        <classShapeMoniker Id="661144fb-ed22-41d0-ba82-afc03a11e708" />
+        <classShapeMoniker Id="2e5d5b87-8f57-4fb1-a89f-5ee1c4fdc8a7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.72760602088341 : 2.1362939453125); (3.125 : 2.53368792442909); (3.125 : 11.0200512695312); (3.5 : 11.0200512695312)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Family/Family_PrayFamily" />
+      <nodes>
+        <classShapeMoniker Id="661144fb-ed22-41d0-ba82-afc03a11e708" />
+        <classShapeMoniker Id="7662ce4a-4fe2-4905-8c4b-311ded0fed47" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.31814697265625); (2.91666666666667 : 4.31814697265625 : JumpStart); (3.48958333333333 : 4.31814697265625 : JumpEnd); (3.5 : 4.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Role/Role_Buddhist" />
+      <nodes>
+        <classShapeMoniker Id="d51a471a-13a2-4bf0-b616-d24e2ceb1830" />
+        <classShapeMoniker Id="2a8be5b6-20f4-4a8d-9cbb-e64bf17b08a4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.9494429077524); (2.94107443490112 : 5.14051734265353 : JumpStart); (3.05892556509888 : 5.25836847285128 : JumpEnd); (3.06607443490112 : 5.26551734265353 : JumpStart); (3.18392556509888 : 5.38336847285128 : JumpEnd); (3.1875 : 5.3869429077524); (3.1875 : 14.2892976888021); (3.5 : 14.2892976888021)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Role/Role_UserLogin" />
+      <nodes>
+        <classShapeMoniker Id="d51a471a-13a2-4bf0-b616-d24e2ceb1830" />
+        <classShapeMoniker Id="b647874f-3030-4c69-b2bd-2a7a96336058" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.94032148632813); (3 : 3.94032148632813); (3 : 5.5); (3.04166666666667 : 5.5 : JumpStart); (3.48958333333333 : 5.5 : JumpEnd); (7.5 : 5.5); (7.5 : 5.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Role/Role_Monk" />
+      <nodes>
+        <classShapeMoniker Id="d51a471a-13a2-4bf0-b616-d24e2ceb1830" />
+        <classShapeMoniker Id="13020be0-3b4f-4440-8c85-7ff6c0185416" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.71114226762821 : 9.75); (3.06607443490112 : 9.39506783272708 : JumpStart); (3.24642556509888 : 9.21471670252933 : JumpEnd); (3.34375 : 9.1173922676282); (3.34375 : 3.00282148632813); (3.5 : 3.00282148632813)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Star/Star_Buddhist" />
+      <nodes>
+        <classShapeMoniker Id="402ae4c8-e4f7-471d-95ac-ac21b1d3a896" />
+        <classShapeMoniker Id="2a8be5b6-20f4-4a8d-9cbb-e64bf17b08a4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 9.75121330413662); (3.06607443490112 : 9.4351388692355 : JumpStart); (3.24642556509888 : 9.25478773903774 : JumpEnd); (3.28125 : 9.21996330413662); (3.28125 : 8.02287675585938); (3.5 : 8.02287675585938)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Star/Star_DetailFamily" />
+      <nodes>
+        <classShapeMoniker Id="402ae4c8-e4f7-471d-95ac-ac21b1d3a896" />
+        <classShapeMoniker Id="2e5d5b87-8f57-4fb1-a89f-5ee1c4fdc8a7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 9.79007103650842); (3.16507103650842 : 9.375); (7.5 : 9.375); (7.5 : 9.05930826822917)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Star/Star_Monk" />
+      <nodes>
+        <classShapeMoniker Id="402ae4c8-e4f7-471d-95ac-ac21b1d3a896" />
+        <classShapeMoniker Id="13020be0-3b4f-4440-8c85-7ff6c0185416" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.65657090755208); (3.06607443490112 : 6.34049647265096 : JumpStart); (3.40267556509888 : 6.0038953424532 : JumpEnd); (3.40625 : 6.00032090755208); (3.40625 : 3.66048422949219); (3.5 : 3.66048422949219)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Threat/Threat_Buddhist" />
+      <nodes>
+        <classShapeMoniker Id="09873aaf-b4eb-41e1-94b6-81fbf45bdd2e" />
+        <classShapeMoniker Id="2a8be5b6-20f4-4a8d-9cbb-e64bf17b08a4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.02341287239583); (3.04166666666667 : 7.02341287239583 : JumpStart); (3.42708333333333 : 7.02341287239583 : JumpEnd); (3.5 : 7.02341287239583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Threat/Threat_DetailFamily" />
+      <nodes>
+        <classShapeMoniker Id="09873aaf-b4eb-41e1-94b6-81fbf45bdd2e" />
+        <classShapeMoniker Id="2e5d5b87-8f57-4fb1-a89f-5ee1c4fdc8a7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 8.20359537760417); (1.75 : 8.82615397135417); (3.04166666666667 : 8.82615397135416 : JumpStart); (3.42708333333333 : 8.82615397135417 : JumpEnd); (6.5 : 8.82615397135417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PagodaDataContext/Threat/Threat_Monk" />
+      <nodes>
+        <classShapeMoniker Id="09873aaf-b4eb-41e1-94b6-81fbf45bdd2e" />
+        <classShapeMoniker Id="13020be0-3b4f-4440-8c85-7ff6c0185416" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

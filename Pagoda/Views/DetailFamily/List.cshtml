@@ -1,0 +1,162 @@
+﻿@model IEnumerable<Pagoda.Models.DetailFamily>
+@{
+    ViewBag.Title = "Danh sách chi tiết thành viên gia đình";
+    Layout = null;
+}
+
+<style>
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .padding-top-13 td {
+        padding-top: 46px;
+    }
+
+    .padding-top-29 td {
+        padding-top: 46px;
+    }
+</style>
+
+<div>
+    <div>
+        <h2 style="text-align: center; margin: 0; font-size: 40px">
+            <a style="text-transform: capitalize">Chùa Phụng Sơn</a>
+        </h2>
+
+        <br>
+
+        <h2 style="text-align: center; font-size: 18px">
+            Tọa lạc ở số 1408, Đường Ba Tháng Hai, Phường 2, Quận 11, Thành phố Hồ Chí Minh, Việt Nam
+        </h2>
+
+        <h2 style="text-align: center; font-size: 22px">
+            Gia Đình: <a style="text-transform: uppercase ">@ViewBag.FamilyName</a>
+        </h2>
+
+        <h2 style="text-align: center; font-size: 22px">
+            Địa Chỉ: <a style="text-transform: uppercase">@ViewBag.Address</a>
+        </h2>
+    </div>
+
+    <div style="display: block">
+        <hr style="width: 810px; border: 1px solid black" />
+        <h2 style="text-align: center; font-size: 28px; text-transform: capitalize">
+            sớ sao cúng hạn
+        </h2>
+        <hr style="width: 810px; border: 1px solid black" />
+    </div>
+
+    <div>
+        <table class="center">
+            <thead>
+                <tr>
+                    <th style="width: 90px; text-align: center; font-size: 22px; ">STT</th>
+                    <th style="text-align: center; font-size: 22px; width: 140px; ">
+                        <a class="text-dark" style=" color: black; text-decoration: none" href="@Url.Action("Index", "DetailFamily", new { sortOrder = ViewBag.FullNameSort, currentFilter = ViewBag.CurrentFilter })">
+                            Họ Tên
+                        </a>
+                    </th>
+                    <th style="text-align: center; width: 60px; font-size: 22px; ">
+                        Tuổi
+                    </th>
+                    <th style="text-align: center; width: 110px; font-size: 22px; ">Giới Tính</th>
+                    <th style="text-align: center; width: 11px; font-size: 22px; ">Sao</th>
+                    <th style="text-align: center; width: 11px; font-size: 22px; ">Hạn</th>
+                </tr>
+                <tr>
+                    <td colspan="12">
+                        <hr style="width: 810px; margin: 0; padding: 0" />
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody style="line-height: 51px;">
+                @if (Model != null && Model.Any())
+                {
+                    var i = 1;
+                    var count = Model.Count();
+                    foreach (var item in Model)
+                    {
+                        if (i == 13)
+                        {
+                            <tr id="trow_@item.DetailFamilyID" class="padding-top-13">
+                                <td style="text-align: center; font-size: 22px;">@i</td>
+                                <td style="text-align: center; font-size: 22px">@item.FullName</td>
+                                <td style="text-align: center; font-size: 22px">@item.Age</td>
+                                <td style="text-align: center; font-size: 22px">
+                                    @if (item.Sex == true)
+                                    {@Html.Raw("Nam")}
+                                else if (item.Sex == false)
+                                { @Html.Raw("Nữ")}
+                                </td>
+                                <td style="text-align: center; font-size: 22px">@item.Star.StarName</td>
+                                <td style="text-align: center; font-size: 22px">@item.Threat.ThreatName</td>
+                            </tr>
+                            if (i < count)
+                            {
+                                <tr>
+                                    <td colspan="12">
+                                        <hr style="width: 810px" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                        else if (i == 29)
+                        {
+                            <tr id="trow_@item.DetailFamilyID" class="padding-top-29">
+                                <td style="text-align: center; font-size: 22px;">@i</td>
+                                <td style="text-align: center; font-size: 22px">@item.FullName</td>
+                                <td style="text-align: center; font-size: 22px">@item.Age</td>
+                                <td style="text-align: center; font-size: 22px">
+                                    @if (item.Sex == true)
+                                    {@Html.Raw("Nam")}
+                                else if (item.Sex == false)
+                                { @Html.Raw("Nữ")}
+                                </td>
+                                <td style="text-align: center; font-size: 22px">@item.Star.StarName</td>
+                                <td style="text-align: center; font-size: 22px">@item.Threat.ThreatName</td>
+                            </tr>
+                            if (i < count)
+                            {
+                                <tr>
+                                    <td colspan="12">
+                                        <hr style="width: 810px" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                        else
+                        {
+                            <tr id="trow_@item.DetailFamilyID">
+                                <td style="text-align: center; font-size: 22px;">@i</td>
+                                <td style="text-align: center; font-size: 22px">@item.FullName</td>
+                                <td style="text-align: center; font-size: 22px">@item.Age</td>
+                                <td style="text-align: center; font-size: 22px">
+                                    @if (item.Sex == true)
+                                    {@Html.Raw("Nam")}
+                                else if (item.Sex == false)
+                                { @Html.Raw("Nữ")}
+                                </td>
+                                <td style="text-align: center; font-size: 22px">@item.Star.StarName</td>
+                                <td style="text-align: center; font-size: 22px">@item.Threat.ThreatName</td>
+                            </tr>
+                            if (i < count)
+                            {
+                                <tr>
+                                    <td colspan="12">
+                                        <hr style="width: 810px" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+﻿@model Pagoda.Models.Monk
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <hr />
+
+    <fieldset style="overflow-y: scroll; height: 360px;">
+        <ul class="list-group m-2">
+            <li class="list-group-item">
+                <div>
+                    <label>Họ Tên</label>
+                </div>
+
+                <div>
+                    @Html.DisplayFor(model => model.FullName)
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div>
+                    <label>Pháp Danh</label>
+                </div>
+
+                <div>
+                    @Html.DisplayFor(model => model.NickName)
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div>
+                    <label>Tuổi</label>
+                </div>
+
+                <div>
+                    @Html.DisplayFor(model => model.Age)
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div>
+                    <label>Giới Tính</label>
+                </div>
+
+                <div>
+                    @if (@Model.Sex == true)
+                    {
+                        <div>Nam</div>
+                    }
+                    else if (@Model.Sex == false)
+                    {
+                        <div>Nữ</div>
+                    }
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div>
+                    <label>Số Điện Thoại</label>
+                </div>
+
+                <div>
+                    @Html.DisplayFor(model => model.Phone)
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div>
+                    <label>Địa Chỉ</label>
+                </div>
+
+                <div>
+                    @Html.DisplayFor(model => model.Address)
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div>
+                    <label>Sao Chiếu Mệnh</label>
+                </div>
+
+                <div>
+                    @Html.DisplayFor(model => model.Star.StarName)
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div>
+                    <label>Hạn Kiết Hung</label>
+                </div>
+
+                <div>
+                    @Html.DisplayFor(model => model.Threat.ThreatName)
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div>
+                    <label>Mật Khẩu</label>
+                </div>
+
+                <div>
+                    @Html.DisplayFor(model => model.Password)
+                </div>
+            </li>
+
+        </ul>
+    </fieldset>
+}
+
+<link href="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.min.js")" type="text/javascript"></script>
+

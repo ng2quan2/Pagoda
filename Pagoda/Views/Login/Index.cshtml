@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+<head>
+    <title>Hệ Thống Quản Lý</title>
+    <link rel="icon" type="image/x-icon" href="~/Content/Clients/dist/img/login-icon-png-27.png">
+</head>
+
+<link href="~/Content/Login.css" rel="stylesheet" />
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form">
+                <label style="float: left; margin-bottom: 10px">Tài Khoản</label>
+                <input type="text" name="userPhone" placeholder="Xin Mời Nhập Số Điện Thoại" />
+                <label style="float: left; margin-bottom: 10px">Mật Khẩu</label>
+                <input type="password" name="password" placeholder="Xin Mời Nhập Mật Khẩu" />
+
+                <a href="#" style="text-decoration: none; color: black; font-size: 14px">Quên mật khẩu</a>
+
+                <button style="font-weight: 600; margin-top: 18px">đăng nhập</button>
+            </form>
+        </div>
+    </div>
+}
+
+<script>
+    $('.message a').click(function () {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
+</script>

@@ -1,0 +1,60 @@
+﻿@model Pagoda.Models.Role
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <hr />
+
+    <fieldset>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nhóm Người Dùng</label>
+            @Html.EditorFor(model => model.RoleName, new { htmlAttributes = new { @class = "form-control", @id = "RoleName", placeholder = "Xin Mời Nhập Tên Nhóm Người Dùng" } })
+            @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label"> Mô Tả</label>
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Xin Mời Nhập Mô Tả" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+
+    </fieldset>
+
+    <hr />
+}
+
+<div class="form-group mt-2">
+    <div class="col-md-offset-2 col-md-10 text-right" style="margin-left: 76px;">
+        <input type="button" value="Lưu" onclick="SaveRole()" class="btn btn-danger" />
+    </div>
+</div>
+
+<link href="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.min.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $('[data-toggle="tooltip"]').tooltip();
+
+    function SaveRole() {
+        var RoleName = $("#RoleName").val();
+        var Description = $("#Description").val();
+
+        var Role = {
+            "RoleName": RoleName, "Description": Description
+        };
+
+        if (RoleName.trim() === "") {
+            $("#RoleName").attr("title", "Vui lòng nhập tên nhóm người dùng").tooltip({ show: true });
+            $("#RoleName").focus();
+            return;
+        }
+
+        $.post("/Role/Create", Role,
+            function (data) {
+                if (data != 0) {
+                    window.location.href = "/Role/Index";
+                }
+            }, 'json');
+    }
+</script>

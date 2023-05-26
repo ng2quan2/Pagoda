@@ -1,0 +1,70 @@
+﻿@model Pagoda.Models.Threat
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <hr />
+
+    <fieldset>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Sao Chiếu Mệnh</label>
+            @Html.EditorFor(model => model.ThreatName, new { htmlAttributes = new { @class = "form-control", @id = "ThreatName", placeholder = "Xin Mời Nhập Tên Hạn Kiết Hung"} })
+            @Html.ValidationMessageFor(model => model.ThreatName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label"> Tuổi</label>
+            @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control", placeholder = "Xin Mời Nhập Tuổi" } })
+            @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="text-bold mb-2">Giới Tính</div>
+
+            @Html.DropDownListFor(model => model.Sex, new SelectList(new[] { new { Value = true, Text = "Nam" }, new { Value = false, Text = "Nữ" } }, "Value", "Text"), "Chọn Giới Tính", new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+        </div>
+
+    </fieldset>
+
+    <hr />
+}
+
+<div class="form-group mt-2">
+    <div class="col-md-offset-2 col-md-10 text-right" style="margin-left: 76px;">
+        <input type="button" value="Lưu" onclick="SaveThreat()" class="btn btn-danger" />
+    </div>
+</div>
+
+<link href="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Content/Clients/plugins/jquery-ui/jquery-ui.min.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $('[data-toggle="tooltip"]').tooltip();
+
+    function SaveThreat() {
+        var ThreatName = $("#ThreatName").val();
+        var Age = $("#Age").val();
+        var Sex = $("#Sex").val();
+
+        if (ThreatName.trim() === "") {
+            $("#ThreatName").attr("title", "Vui lòng nhập tên hạn kiết hung").tooltip({ show: true });
+            $("#ThreatName").focus();
+            return;
+        }
+
+        var Threat = {
+            "ThreatName": ThreatName, "Age": Age, "Sex": Sex,
+        };
+
+        $.post("/Threat/Create", Threat,
+            function (data) {
+                if (data != 0) {
+                    window.location.href = "/Threat/Index";
+                }
+            }, 'json');
+    }
+</script>
+

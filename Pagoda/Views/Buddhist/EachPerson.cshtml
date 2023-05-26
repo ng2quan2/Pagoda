@@ -1,0 +1,107 @@
+﻿@model Pagoda.Models.Buddhist
+
+@{
+    ViewBag.Title = "Hồ Sơ";
+    Layout = null;
+}
+
+<div style="color: darkblue; border: 1px solid darkblue; height: 1900px;">
+    <div style="padding: 42px">
+        <div>
+            <h2 style="text-align: center; margin: 0; font-size: 40px">
+                Tổ Đình <a style="text-transform: uppercase">Phụng Sơn</a> (Chùa Gò)
+            </h2>
+
+            <br>
+
+            <h1 style="text-align: center; text-transform: uppercase; font-size: 92px">
+                thông tin phật tử
+            </h1>
+        </div>
+
+        <br>
+        <br>
+
+        <div style="display: flex;">
+            <div class="block" style="height: 380px; width: 250px; border: 1px solid blue">
+                <h4 style="margin-left: 280px; width: 1000px; margin-top: 0; font-size: 36px; text-transform: capitalize ">
+                    họ & tên:
+                    @Html.DisplayFor(model => model.FullName)
+                </h4>
+                <h4 style="margin-left: 280px; width: 1000px; margin-top: 0; font-size: 36px; text-transform: capitalize ">
+                    sinh năm:
+                    @Html.DisplayFor(model => model.YearUser)
+                </h4>
+                <h4 style="margin-left: 280px; width: 1000px; margin-top: 0; font-size: 36px; text-transform: capitalize ">
+                    giới tính:
+                    @if (@Model.Sex == true)
+                    {
+                        <a>Nam</a>
+                    }
+                    else if (@Model.Sex == false)
+                    {
+                        <a>Nữ</a>
+                    }
+                </h4>
+                <h4 style="margin-left: 280px; width: 1000px; margin-top: 0; font-size: 36px; text-transform: capitalize; padding-right: 8px; ">
+                    địa chỉ:
+                    @Html.DisplayFor(model => model.Address)
+                </h4>
+                <h4 style="margin-left: 280px; width: 1000px; margin-top: 0; font-size: 36px; text-transform: capitalize ">
+                    điện thoại:
+                    @Html.DisplayFor(model => model.Phone)
+                </h4>
+
+                <h4 style="width: 380px; margin-top: 0; font-size: 36px; text-transform: capitalize ">số: .................................</h4>
+                <h4 style="width: 380px; margin-top: 0; font-size: 36px; text-transform: capitalize">ngày quy y: ................</h4>
+                <h4 style="width: 380px; margin-top: 0; font-size: 36px; text-transform: capitalize">(ÂL: ..............................)</h4>
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+                @if (!string.IsNullOrEmpty(Model.NickName))
+                {
+                    <h4 style="margin-left: 331px; width: 800px; margin-top: 0; font-size: 38px; text-transform: uppercase">
+                        pháp danh: @Html.DisplayFor(model => model.NickName)
+                    </h4>
+                }
+                else
+                {
+                    <h4 style="margin-left: 331px; width: 900px; margin-top: 0; font-size: 38px; text-transform: uppercase">
+                        pháp danh: <span>
+                        .................................................................
+                        
+                    </span>
+                    </h4>
+                }
+
+                <h4 style="margin-left: 331px; width: 900px; margin-top: 0; font-size: 38px; text-transform: uppercase ">
+                    bổn sư truyền giới:
+                    ..............................................
+                </h4>
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <h4 style="width: 900px; margin-top: 0; font-size: 38px; text-transform: uppercase;">
+                    ghi chú:
+                    <span>
+                        ...........................................................................................................................
+                        ...........................................................................................................................
+                        ...........................................................................................................................
+                        ...........................................................................................................................
+                        ...........................................................................................................................
+                        ...........................................................................................................................
+                        
+                    </span>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>

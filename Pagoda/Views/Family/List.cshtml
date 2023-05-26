@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Pagoda.Models.Family>
+@{
+    ViewBag.Title = "Danh sách các hộ gia đình đi lễ";
+    Layout = null;
+}
+
+<style>
+    .padding-top-21 td {
+        padding-top: 52px !important;
+    }
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+<div>
+    <h2 style="text-align: center; margin: 0; font-size: 40px">
+        <a style="text-transform: capitalize">Chùa Phụng Sơn</a>
+    </h2>
+
+    <br>
+
+    <h2 style="text-align: center; font-size: 18px">
+        Tọa lạc ở số 1408, Đường Ba Tháng Hai, Phường 2, Quận 11, Thành phố Hồ Chí Minh, Việt Nam
+    </h2>
+</div>
+
+<div style="display: block">
+    <h2 style="text-align: center; font-size: 28px; text-transform: capitalize">
+        @ViewBag.Title
+    </h2>
+</div>
+
+<br />
+
+<section class="content">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; font-size: 20px">STT</th>
+                        <th style="text-align: center; font-size: 20px">Gia Đình</th>
+                        <th style="text-align: center; font-size: 20px">Địa Chỉ</th>
+                    </tr>
+                </thead>
+                <tbody style="line-height: 39px;">
+                    @if (Model != null && Model.Any())
+                    {
+                        var i = 1;
+                        var count = Model.Count();
+                        foreach (var item in Model)
+                        {
+                            if (i == 21)
+                            {
+                                <tr id="trow_@item.FamilyID" class="padding-top-21">
+                                    <td style="text-align: center; font-size: 18px;">@i</td>
+                                    <td style="text-align: center; font-size: 18px">@item.FamilyName</td>
+                                    <td style="text-align: center; font-size: 18px">@item.Address</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr id="trow_@item.FamilyID">
+                                    <td style="text-align: center; font-size: 18px">@i</td>
+
+                                    <td style="text-align: center; font-size: 18px">@item.FamilyName</td>
+
+                                    <td style="text-align: center; font-size: 18px">@item.Address</td>
+                                </tr>
+                            }
+                                i++;
+
+
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
